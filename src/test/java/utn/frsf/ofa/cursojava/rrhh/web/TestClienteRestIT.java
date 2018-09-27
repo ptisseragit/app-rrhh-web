@@ -30,7 +30,7 @@ import static org.junit.Assert.*;
  */
 public class TestClienteRestIT {
     
-    public TestClienteRestIT() {
+    /*public TestClienteRestIT() {
     }
     
     @Before
@@ -86,6 +86,6 @@ public class TestClienteRestIT {
         assertEquals("POST MARTIN", resultado.toUpperCase());
         EntityUtils.consume(entity1);
         response1.close();
-    }
+    }*/
     
 }

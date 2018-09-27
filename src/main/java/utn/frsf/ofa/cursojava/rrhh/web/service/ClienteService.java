@@ -15,8 +15,10 @@ import utn.frsf.ofa.cursojava.rrhh.web.modelo.Cliente;
  *
  * @author Cristian
  */
+
 @Stateless
 public class ClienteService {
+ 
  @PersistenceContext(unitName = "RRHH_WEB_PU")
  private EntityManager em;
  
@@ -27,9 +29,23 @@ public class ClienteService {
     em.refresh(c);
     return c;
  }
+ 
+ public Cliente porId(Integer id){
+    return this.em.find(Cliente.class,id);
+ }
+
+ public void borrar(Integer id){
+    this.em.remove(this.em.find(Cliente.class,id));
+ }
+ 
+public List<Cliente> porNombre(String nombre){
+    return this.em.createQuery("SELECT c FROM Cliente c WHERE c.nombre like :P_NOMBRE").setParameter("P_NOMBRE", nombre).getResultList();
+}
+
 
  public List<Cliente> todos(){
     return this.em.createQuery("SELECT c FROM Cliente c").getResultList();
  }
+ 
 }
 
