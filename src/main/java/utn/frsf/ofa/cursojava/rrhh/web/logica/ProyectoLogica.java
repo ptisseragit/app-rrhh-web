@@ -15,8 +15,7 @@ import utn.frsf.ofa.cursojava.rrhh.web.modelo.Proyecto;
  * @author Cristian
  */
 
-@ApplicationScoped
-@Transactional
+
 public interface ProyectoLogica {
     public boolean cupoDisponible(Proyecto p);
     public boolean tieneEmpleadoEfectivo(Proyecto p);

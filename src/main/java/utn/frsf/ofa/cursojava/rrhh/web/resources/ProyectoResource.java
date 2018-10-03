@@ -55,14 +55,14 @@ private ProyectoService proyectoService;
  }
  
  @POST
- public Response crearCliente(Proyecto proyecto){
+ public Response crearProyecto(Proyecto proyecto){
     proyectoService.guardar(proyecto);
     return Response.ok().build();
  }
 
 @PUT
-@Path("{id}/empleado")
-public Response agreagrEmpleado(@PathParam("id") Integer idProyecto,Empleado emp){
+@Path("{id}/proyecto")
+public Response agregarEmpleado(@PathParam("id") Integer idProyecto,Empleado emp){
     Proyecto p = proyectoService.porId(idProyecto);
     try {
         proyectoService.agregarEmpleado(p, emp);
@@ -76,7 +76,7 @@ public Response agreagrEmpleado(@PathParam("id") Integer idProyecto,Empleado emp
 
 @DELETE
  @Path("{id}")
-    public Response actualizarCliente(@PathParam("id") Integer idProyecto){
+    public Response actualizarProyecto(@PathParam("id") Integer idProyecto){
     proyectoService.borrar(idProyecto);
     return Response.ok("DELETE ok").build();
  }

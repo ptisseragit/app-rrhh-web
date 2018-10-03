@@ -13,6 +13,7 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -34,10 +35,11 @@ public abstract class Empleado {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String nombre;
-    //private String correoElectronico;
-    private String correo;
+    private String correoElectronico;
+    //private String correo;
     private String cuil;
     //private Date fechaIngreso;
+    @Temporal(javax.persistence.TemporalType.DATE)
     private Date fecha_ingreso;
     //private Integer horasTrabajadas;
     private Integer hs_trabajadas;
@@ -81,21 +83,21 @@ public abstract class Empleado {
         this.nombre = nombre;
     }
 
-    /*public String getCorreoElectronico() {
+    public String getCorreoElectronico() {
         return correoElectronico;
     }
 
     public void setCorreoElectronico(String correoElectronico) {
         this.correoElectronico = correoElectronico;
-    }*/
+    }
 
-    public String getCorreo() {
+    /*public String getCorreo() {
         return correo;
     }
 
     public void setCorreo(String correo) {
         this.correo = correo;
-    }
+    }*/
     
 
     public String getCuil() {

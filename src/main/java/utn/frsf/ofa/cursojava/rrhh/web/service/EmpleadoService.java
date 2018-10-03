@@ -9,7 +9,6 @@ import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.ws.rs.Path;
 import utn.frsf.ofa.cursojava.rrhh.web.modelo.Empleado;
 
 /**

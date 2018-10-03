@@ -17,7 +17,7 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.Response;
-import utn.frsf.ofa.cursojava.rrhh.web.modelo.Cliente;
+import utn.frsf.ofa.cursojava.rrhh.web.modelo.Efectivo;
 import utn.frsf.ofa.cursojava.rrhh.web.modelo.Empleado;
 import utn.frsf.ofa.cursojava.rrhh.web.service.EmpleadoService;
 
@@ -28,8 +28,10 @@ import utn.frsf.ofa.cursojava.rrhh.web.service.EmpleadoService;
 @Stateless
 @Path("/empleado")
 public class EmpleadoResource {
+
 @Inject EmpleadoService empleadoService; 
- @GET
+
+@GET
  public Response listarEmpleados(@QueryParam("nombre") String nombre){
     List<Empleado> lista = new ArrayList<>();
     if(nombre!=null && nombre.trim().length()>0){
@@ -48,19 +50,20 @@ public class EmpleadoResource {
  }
  
  @POST
- public Response crearCliente(Empleado emp){
+ public Response crearEmpleado(Efectivo emp){
+    System.out.println("LLAMADO CREAR EMPLEADO...");
     empleadoService.guardar(emp);
     return Response.ok().build();
  }
  @PUT
-    public Response actualizarCliente(Empleado emp){
+    public Response actualizarEmpleado(Empleado emp){
     empleadoService.guardar(emp);
     return Response.ok("PUT"+emp.getNombre()).build();
  }
 
  @DELETE
  @Path("{id}")
-    public Response actualizarCliente(@PathParam("id") Integer idEmpleado){
+    public Response actualizarEmpleado(@PathParam("id") Integer idEmpleado){
     empleadoService.borrar(idEmpleado);
     return Response.ok("DELETE ok").build();
  }

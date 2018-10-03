@@ -5,13 +5,22 @@
  */
 package utn.frsf.ofa.cursojava.rrhh.web.logica;
 
+import javax.enterprise.context.ApplicationScoped;
+import javax.transaction.Transactional;
 import utn.frsf.ofa.cursojava.rrhh.web.modelo.Empleado;
 
 /**
  *
  * @author Cristian
  */
+@ApplicationScoped
+@Transactional
 public class EmpleadoLogicaMock implements EmpleadoLogica{
+    
+    public EmpleadoLogicaMock(){
+    
+    }
+    
     @Override
     public boolean puedeSumarseProyectoNuevo(Empleado e) {
         return true;
